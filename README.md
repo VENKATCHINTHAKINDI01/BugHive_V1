@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/License-MIT-yellow" alt="License">
 </p>
 
-                                              #🐝 BugHive
+#🐝 BugHive
 
 **Multi-Agent Bug Investigation System**
 
