@@ -1,0 +1,58 @@
+2026-04-07T08:12:01.003Z [INFO]  server.main - Application started on port 8080
+2026-04-07T08:12:01.250Z [INFO]  db.pool - Connection pool initialized: 10 connections
+2026-04-07T08:12:02.100Z [INFO]  cache.redis - Redis connection established at 127.0.0.1:6379
+2026-04-07T08:12:15.442Z [INFO]  orders.api - POST /api/orders - customer_id=CUST-8821 - 201 Created
+2026-04-07T08:12:15.780Z [INFO]  orders.processor - Order ORD-90421 created: 3 items, subtotal=$254.97
+2026-04-07T08:12:16.003Z [INFO]  orders.processor - Discount SAVE20 applied to ORD-90421
+2026-04-07T08:12:16.015Z [WARN]  orders.processor - Tax calculation: order=ORD-90421 subtotal=254.97 discount_pct=20 tax_base=254.97 tax=20.40
+2026-04-07T08:12:16.016Z [INFO]  orders.processor - Order ORD-90421 total calculated: subtotal=254.97 discount=50.99 discounted_subtotal=203.98 tax=20.40 total=224.38
+2026-04-07T08:12:16.250Z [INFO]  payments.gateway - Charge $224.38 for ORD-90421 via card ending 4242 - SUCCESS
+2026-04-07T08:13:45.100Z [INFO]  cache.redis - Cache hit: product_catalog_v3
+2026-04-07T08:14:02.330Z [WARN]  db.pool - Connection pool utilization at 70% (7/10)
+2026-04-07T08:14:22.500Z [INFO]  orders.api - POST /api/orders - customer_id=CUST-1190 - 201 Created
+2026-04-07T08:14:22.812Z [INFO]  orders.processor - Order ORD-90422 created: 1 items, subtotal=$89.99
+2026-04-07T08:14:23.001Z [INFO]  orders.processor - Discount SAVE10 applied to ORD-90422
+2026-04-07T08:14:23.010Z [WARN]  orders.processor - Tax calculation: order=ORD-90422 subtotal=89.99 discount_pct=10 tax_base=89.99 tax=7.20
+2026-04-07T08:14:23.011Z [INFO]  orders.processor - Order ORD-90422 total calculated: subtotal=89.99 discount=9.00 discounted_subtotal=80.99 tax=7.20 total=88.19
+2026-04-07T08:14:23.250Z [INFO]  payments.gateway - Charge $88.19 for ORD-90422 via card ending 1881 - SUCCESS
+2026-04-07T08:15:00.000Z [INFO]  health.check - All systems operational
+2026-04-07T08:15:30.120Z [ERROR] notifications.email - Failed to send order confirmation for ORD-90419: SMTP timeout after 30s
+2026-04-07T08:15:30.121Z [ERROR] notifications.email - Traceback (most recent call last):
+  File "/app/notifications/email_sender.py", line 45, in send_confirmation
+    smtp.sendmail(from_addr, to_addr, msg.as_string())
+  File "/usr/lib/python3.11/smtplib.py", line 885, in sendmail
+    raise SMTPServerDisconnected("Connection unexpectedly closed")
+smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+2026-04-07T08:16:10.550Z [INFO]  orders.api - POST /api/orders - customer_id=CUST-5567 - 201 Created
+2026-04-07T08:16:10.890Z [INFO]  orders.processor - Order ORD-90423 created: 2 items, subtotal=$200.00
+2026-04-07T08:16:11.003Z [INFO]  orders.processor - Discount SAVE20 applied to ORD-90423
+2026-04-07T08:16:11.012Z [WARN]  orders.processor - Tax calculation: order=ORD-90423 subtotal=200.00 discount_pct=20 tax_base=200.00 tax=16.00
+2026-04-07T08:16:11.013Z [INFO]  orders.processor - Order ORD-90423 total calculated: subtotal=200.00 discount=40.00 discounted_subtotal=160.00 tax=16.00 total=176.00
+2026-04-07T08:16:11.250Z [INFO]  payments.gateway - Charge $176.00 for ORD-90423 via card ending 9103 - SUCCESS
+2026-04-07T08:17:00.000Z [INFO]  scheduler.cron - Running job: cleanup_expired_sessions
+2026-04-07T08:17:00.450Z [INFO]  scheduler.cron - Cleaned 142 expired sessions
+2026-04-07T08:18:05.200Z [WARN]  db.pool - Slow query detected: SELECT * FROM order_items WHERE order_id = 'ORD-90420' took 1.2s
+2026-04-07T08:19:33.100Z [INFO]  orders.api - POST /api/orders - customer_id=CUST-3344 - 201 Created
+2026-04-07T08:19:33.410Z [INFO]  orders.processor - Order ORD-90424 created: 5 items, subtotal=$499.95
+2026-04-07T08:19:33.600Z [INFO]  orders.processor - No discount applied to ORD-90424
+2026-04-07T08:19:33.610Z [INFO]  orders.processor - Order ORD-90424 total calculated: subtotal=499.95 discount=0.00 discounted_subtotal=499.95 tax=40.00 total=539.95
+2026-04-07T08:19:33.850Z [INFO]  payments.gateway - Charge $539.95 for ORD-90424 via card ending 7720 - SUCCESS
+2026-04-07T08:20:15.000Z [INFO]  health.check - All systems operational
+2026-04-07T08:21:45.300Z [WARN]  cache.redis - Cache miss: user_profile_CUST-5567 (TTL expired)
+2026-04-07T08:22:10.100Z [INFO]  orders.api - POST /api/orders - customer_id=CUST-9901 - 201 Created
+2026-04-07T08:22:10.400Z [INFO]  orders.processor - Order ORD-90425 created: 1 items, subtotal=$150.00
+2026-04-07T08:22:10.600Z [INFO]  orders.processor - Discount VIP30 applied to ORD-90425
+2026-04-07T08:22:10.610Z [WARN]  orders.processor - Tax calculation: order=ORD-90425 subtotal=150.00 discount_pct=30 tax_base=150.00 tax=12.00
+2026-04-07T08:22:10.611Z [INFO]  orders.processor - Order ORD-90425 total calculated: subtotal=150.00 discount=45.00 discounted_subtotal=105.00 tax=12.00 total=117.00
+2026-04-07T08:22:10.850Z [INFO]  payments.gateway - Charge $117.00 for ORD-90425 via card ending 3355 - SUCCESS
+2026-04-07T08:23:00.000Z [ERROR] db.pool - Connection #7 lost: server closed the connection unexpectedly
+2026-04-07T08:23:00.050Z [INFO]  db.pool - Reconnecting... connection #7 re-established
+2026-04-07T08:24:00.000Z [INFO]  deploy.tracker - Current version: v2.14.3 (deployed 2026-04-05T14:30:00Z)
+2026-04-07T08:24:00.001Z [INFO]  deploy.tracker - Previous version: v2.14.2 (deployed 2026-04-01T10:00:00Z)
+2026-04-07T08:24:00.002Z [INFO]  deploy.tracker - Changelog v2.14.3: refactored tax calculation module, updated discount validation logic
+2026-04-07T08:25:00.000Z [INFO]  health.check - All systems operational
+2026-04-07T08:25:30.200Z [WARN]  security.audit - Rate limit approaching for IP 203.0.113.42: 95/100 requests in 60s
+2026-04-07T08:26:15.100Z [INFO]  orders.api - GET /api/orders/ORD-90423/summary - 200 OK
+2026-04-07T08:26:15.110Z [WARN]  support.ticket - Customer CUST-5567 opened ticket TK-8810: "I was charged $176.00 but my order after discount should be $172.80"
+2026-04-07T08:27:00.300Z [WARN]  support.ticket - Customer CUST-8821 opened ticket TK-8811: "Tax seems wrong on my discounted order"
+2026-04-07T08:28:00.000Z [WARN]  support.ticket - Customer CUST-9901 opened ticket TK-8812: "Overcharged on VIP discount order, tax is $12 but should be $8.40"

@@ -1,0 +1,17 @@
+# BugHive v2 — Requirements
+# Core CLI uses Python 3.10+ stdlib only (no external dependencies).
+
+# --- Required for UI ---
+streamlit>=1.30.0
+
+# --- Required for test execution ---
+pytest>=7.0
+
+
+Groq
+openai
+python-dotenv
+
+
+# --- Optional ---
+# pyyaml>=6.0          # Config parser (built-in fallback included)

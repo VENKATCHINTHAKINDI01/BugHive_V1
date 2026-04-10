@@ -1,0 +1,53 @@
+# ============================================================
+# BugHive v2 — Configuration
+# ============================================================
+
+project:
+  name: "BugHive"
+  version: "2.0.0"
+
+inputs:
+  bug_report: "inputs/bug_report.md"
+  log_file: "inputs/app.log"
+  repo_path: "sample_repo"
+
+outputs:
+  dir: "outputs"
+  report_file: "bughive_report.json"
+  repro_script: "repro_test.py"
+  patch_file: "fix.patch"
+  trace_file: "trace.log"
+
+pipeline:
+  agents:
+    - "triage"
+    - "log_analyst"
+    - "repo_navigator"
+    - "reproducer"
+    - "dependency_analyst"
+    - "fix_planner"
+    - "patch_generator"
+    - "reviewer"
+  max_retries: 2
+  agent_timeout: 120
+  fail_fast: false
+
+# --- LLM Configuration (Groq + Llama 3.3 70B) ---
+llm:
+  provider: "groq"
+  model: "llama-3.3-70b-versatile"
+  max_tokens: 4096
+  temperature: 0.0
+  # API key loaded from GROQ_API_KEY env var — never hardcoded
+  # Get your free key at: https://console.groq.com/keys
+
+logging:
+  level: "INFO"
+  console: true
+  file: true
+  file_path: "outputs/trace.log"
+
+tools:
+  script_timeout: 30
+  grep_max_results: 50
+  grep_context_lines: 3
